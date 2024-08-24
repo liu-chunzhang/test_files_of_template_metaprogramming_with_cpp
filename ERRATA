@@ -1,0 +1,5 @@
+Page 29 It is better to add some extra contents in code as follows.
+	template <typename T>
+   	concept WrappableType = std::is_trivial_v<T>;
+Besides, it is also better to add 
+	The header file <concepts> should be added and C++20 should be used to compile this .cc file.
