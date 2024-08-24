@@ -1,5 +1,4 @@
 Page 29 
-
 It is better to add some extra contents in code as follows.
 	template <typename T>
    	concept WrappableType = std::is_trivial_v<T>;
@@ -73,9 +72,20 @@ Page 57
 There is a wrong in the first paragraph, which states "... should be template <> func<int>(foo<int>)". Indeed, it should be corrected to "... should be template <> void func<int>(foo<int>)".
 
 Page 61
-In the sniplet, the 9th and 11th line is wrong. They should be corrected as follows.
+In the snippet, the 9th and 11th line is wrong. They should be corrected as follows.
 The 9th line, "for(;i<S-1;++i)", should be "for(;i<S-2;++i)"
 The 11th line, "os << arr[S-1];", should be "os << arr[S-2];"
 
 Page 63
 There is a wrong in the last paragraph, which states "This will generate a compiler warning if we use float, ...". Indeed, with GCC, Clang and MSVC, there is no warning in compiling. The author should test this example again and correct his contents.
+
+Page 72
+In the first snippet, the line including variable "v2" is wrong. Here, there is no warning in the compiling.
+
+Page 73
+In the second snippet, the line including variable "v2" is wrong. Here, there is no warning in the compiling.
+
+Page 76
+In the second snippet, the line including variable "v2" is wrong. Here, there is no warning in the compiling.
+
+
