@@ -4,7 +4,68 @@ It is better to add some extra contents in code as follows.
 	template <typename T>
    	concept WrappableType = std::is_trivial_v<T>;
 Besides, it is also better to add 
-	The header file <concepts> should be added and C++20 should be used to compile this .cc file.
+Moreover, the header file <concepts> should be added and C++20 should be used to compile this .cc file.
 	
+Page 45
+There is a wrong in the first paragraph, in the second line which states "This code compiles without any problem with VC++, but fails with Clang and GCC". Indeed, Under Ubuntu 22.04 LTS, with CLI "g++ xxx.cc -std=c++20", there is no wrong in compiling (the same as C++11, 14 and 17)! The author should test this example again and correct his contents.
 
+Page 50
+There is a wrong in the first paragraph, which states "The last line in this example generates a compile error because ......". Indeed, Under Ubuntu 22.04 LTS, with CLI "g++ xxx.cc -std=c++20", there is no wrong in compiling (the same as C++11, 14 and 17)! The author should test this example again and correct his contents.
+
+There is a wrong in the third paragraph, which states "Both the class X<T>::bar and ......". Here, "class X<T>::bar" should be corrected to "class foo<T>::bar".
+
+Page 51
+There are at least three wrongs in codes. I have to directly show suitable codes as follows.
+// wrapper.h
+namespace ext
+{
+   template <typename T>
+   struct wrapper
+   {
+      T data;
+   }; 
+
+   extern template struct wrapper<int>;
+
+   void f();
+   void g();
+}
+
+// source1.cc
+#include "wrapper.h"
+#include <iostream>
+
+namespace ext
+{
+   template struct wrapper<int>;
+
+   void f()
+   {
+      wrapper<int> a{ 42 };
+
+      std::cout << a.data << '\n';
+   }
+}
+
+// source2.cc
+#include "wrapper.h"
+#include <iostream>
+
+namespace ext
+{
+   void g()
+   {
+      wrapper<int> a{ 100 };
+
+      std::cout << a.data << '\n';
+   }
+}
+
+// main.cc
+#include "wrapper.h"
+
+int main(){
+    ext::wrapper<int>    a{ 0 } ;
+    return 0;
+}
 
