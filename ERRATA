@@ -88,4 +88,13 @@ In the second snippet, the line including variable "v2" is wrong. Here, there is
 Page 76
 In the second snippet, the line including variable "v2" is wrong. Here, there is no warning in the compiling.
 
+Page 113
+There is a wrong in the third paragraph, in the first line which states "This is because the unary left fold expands to (((std::cout << 'd'), std::cout << 'o'), << std::cout << 'g') and the ...". It should be corrected to 
+(((std::cout << 'd'), std::cout << 'o'), std::cout << 'g')
 
+Page 115
+In the second snippet, the third paragraph has a wrong. It should be corrected to
+template <typename T, std::size_t N, T... Is>
+struct make_integer_sequence :
+	make_integer_sequence<T, N-1, Is...>
+{};
